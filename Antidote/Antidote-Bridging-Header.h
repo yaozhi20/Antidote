@@ -36,7 +36,8 @@
 #import "DDTTYLogger.h"
 
 #import <LNNotificationsUI/LNNotificationsUI.h>
-#import <SDCAlertView/SDCAlertController.h>
+//#import <SDCAlertView/SDCAlertController.h>
+#import <SDCAlertView/SDCAlertView.h>
 #import <UITextView+Placeholder/UITextView+Placeholder.h>
 #import <JGProgressHUD/JGProgressHUD.h>
 

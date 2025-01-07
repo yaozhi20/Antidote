@@ -99,7 +99,7 @@ extension ChangePasswordController {
         let newPassword = newPasswordField.text!
 
         let hud = JGProgressHUD(style: .dark)
-        hud?.show(in: view)
+        hud.show(in: view)
 
         DispatchQueue.global(qos: .default).async { [unowned self] in
             let result = self.toxManager.changeEncryptPassword(newPassword, oldPassword: oldPassword)
@@ -112,7 +112,7 @@ extension ChangePasswordController {
             }
 
             DispatchQueue.main.async { [unowned self] in
-                hud?.dismiss()
+                hud.dismiss()
 
                 if result {
                     self.delegate?.changePasswordControllerDidFinishPresenting(self)

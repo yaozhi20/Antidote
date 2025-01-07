@@ -80,6 +80,8 @@ extension StaticTableController: UITableViewDataSource {
                 cell.setBottomSeparatorHidden(!isLastRow || isLastSection)
             case .grouped:
                 cell.setBottomSeparatorHidden(isLastRow)
+        default:
+                        fatalError()
 
         }
 
@@ -140,6 +142,8 @@ private extension StaticTableController {
                 tableView!.backgroundColor = theme.colorForType(.NormalBackground)
             case .grouped:
                 tableView!.backgroundColor = theme.colorForType(.SettingsBackground)
+        default:
+                        fatalError()
         }
 
         view.addSubview(tableView!)

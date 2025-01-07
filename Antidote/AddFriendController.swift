@@ -99,10 +99,10 @@ extension AddFriendController {
         messageView.layer.cornerRadius = 5.0
         messageView.layer.masksToBounds = true
 
-        let alert = SDCAlertController(
+        let alert = AlertController(
                 title: String(localized: "add_contact_default_message_title"),
                 message: nil,
-                preferredStyle: .alert)!
+                preferredStyle: .alert)
 
         alert.contentView.addSubview(messageView)
         messageView.snp.makeConstraints {
@@ -113,8 +113,14 @@ extension AddFriendController {
             $0.height.equalTo(Constants.SendAlertTextViewHeight);
         }
 
-        alert.addAction(SDCAlertAction(title: String(localized: "alert_cancel"), style: .default, handler: nil))
-        alert.addAction(SDCAlertAction(title: String(localized: "add_contact_send"), style: .recommended) { [unowned self] action in
+//        alert.addAction(SDCAlertAction(title: String(localized: "alert_cancel"), style: .default, handler: nil))
+//        alert.addAction(SDCAlertAction(title: String(localized: "add_contact_send"), style: .recommended) { [unowned self] action in
+        
+        alert.addAction(AlertAction(title: String(localized: "alert_cancel"), style: .preferred))
+        alert.addAction(AlertAction(title: String(localized: "add_contact_send"), style: .normal))
+        
+        alert.shouldDismissHandler = { [unowned self] action in
+            
             self.cachedMessage = messageView.text
 
             let message = messageView.text.isEmpty ? messageView.placeholder : messageView.text
@@ -124,11 +130,14 @@ extension AddFriendController {
             }
             catch let error as NSError {
                 handleErrorWithType(.toxAddFriend, error: error)
-                return
+                return true
             }
 
             self.delegate?.addFriendControllerDidFinish(self)
-        })
+            
+            return true
+        }
+                                   
 
         alert.present(completion: nil)
     }

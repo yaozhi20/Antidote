@@ -4,3 +4,21 @@
 [submodule "submodules/YamlSwift"]
 	path = submodules/YamlSwift
 	url = https://github.com/behrang/YamlSwift.git
+# [submodule "submodules/CocoaLumberjack"]
+# 	path = submodules/CocoaLumberjack
+# 	url = https://github.com/CocoaLumberjack/CocoaLumberjack.git
+[submodule "CocoaLumberjack"]
+	path = CocoaLumberjack
+	url = https://github.com/CocoaLumberjack/CocoaLumberjack.git
+[submodule "JGProgressHUD"]
+	path = JGProgressHUD
+	url = https://github.com/JonasGessner/JGProgressHUD
+[submodule "LNNotificationsUI"]
+	path = LNNotificationsUI
+	url = https://github.com/LeoNatan/LNNotificationsUI.git
+[submodule "RBBAnimation"]
+	path = RBBAnimation
+	url = https://github.com/robb/RBBAnimation.git
+[submodule "SDCAlertView"]
+	path = SDCAlertView
+	url = https://github.com/sberrevoets/SDCAlertView.git

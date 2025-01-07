@@ -225,7 +225,7 @@ private extension LoginCoordinator {
         let path = ProfileManager().pathForProfileWithName(profile)
         let configuration = OCTManagerConfiguration.configurationWithBaseDirectory(path)!
 
-        let hud = JGProgressHUD(style: .dark)!
+        let hud = JGProgressHUD(style: .dark)
         hud.show(in: self.navigationController.view)
 
         ToxFactory.createToxWithConfiguration(configuration, encryptPassword: password, successBlock: { [weak self] manager -> Void in

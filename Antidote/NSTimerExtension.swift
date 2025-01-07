@@ -14,9 +14,12 @@ private class BlockWrapper<T> {
 
 extension Timer {
     static func scheduledTimerWithTimeInterval(_ interval: TimeInterval, block: (Timer) -> Void, repeats: Bool) -> Timer {
-        let userInfo = BlockWrapper(block: block)
+        withoutActuallyEscaping(block, do: { block in
+            let userInfo = BlockWrapper(block: block)
+        
 
         return scheduledTimer(timeInterval: interval, target: self, selector: #selector(Timer.executeBlock(_:)), userInfo: userInfo, repeats: repeats)
+        })
     }
 
     @objc static func executeBlock(_ timer: Timer) {

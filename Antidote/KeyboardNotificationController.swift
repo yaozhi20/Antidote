@@ -58,6 +58,8 @@ private extension KeyboardNotificationController {
                 options = .curveEaseOut
             case .linear:
                 options = .curveLinear
+        default :
+            options = .curveEaseIn
         }
 
         UIView.animate(withDuration: duration, delay: 0.0, options: options, animations: { [unowned self] in
